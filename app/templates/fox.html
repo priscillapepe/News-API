@@ -6,14 +6,13 @@
     <title>News</title>
   </head>
   <body>
-    {% extends 'bootstrap'%}
-
+    {% extends 'bootstrap/base.html'%}
 
     {% block navbar %}
     {% include 'navbar.html' %}
 {% endblock %}
     <div class="container">
-      <h1>ABC News</h1>
+      <h1>Fox News</h1>
 
       {% for article in data %}
       <a href="{{ article['url']}}" target="_blank" rel="noopener noreferrer"> <h2>{{ article['title'] }}</h2></a>

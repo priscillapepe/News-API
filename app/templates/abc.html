@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>News</title>
-  </head>
-  <body>
+
+    {% extends 'bootstrap/base.html'%}
 
     {% block navbar %}
     {% include 'navbar.html' %}
-{% endblock %}
+    {% endblock %}
+    {% block content %}
     <div class="container">
-      <h1>Fox News</h1>
+      <h1>ABC News</h1>
 
       {% for article in data %}
       <a href="{{ article['url']}}" target="_blank" rel="noopener noreferrer"> <h2>{{ article['title'] }}</h2></a>
@@ -23,5 +18,4 @@
 
       {% endfor %}
     </div>
-  </body>
-</html>
+      {% endblock %}

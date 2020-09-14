@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  </head>
+  <body>
+
+    {% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+    <div class="container font-style: italic;">
+      <h1>News Update</h1>
+
+      {% for article in data %}
+      <a href="{{ article['url']}}" target="_blank" rel="noopener noreferrer"> 
+        <h2>{{ article['title'] }}</h2></a>
+        
+
+        <h2>{{ article['publishedAt']}}</h2>
+
+     
+      <!-- <h3>Description </h3> -->
+        <p> {{ article['description']}}</p>
+        <img src="{{article['urlToImage']}}" width="80%" height="80%" alt="" srcset="">
+
+      {% endfor %}
+    </div>
+
+    {% block footer %} {% include 'footer.html' %} {% endblock %}
+
+  </body>
+</html>

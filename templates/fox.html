@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News</title>
+  </head>
+  <body>
+
+    {% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+    <div class="container">
+      <h1>Fox News</h1>
+
+      {% for article in data %}
+      <a href="{{ article['url']}}" target="_blank" rel="noopener noreferrer"> <h2>{{ article['title'] }}</h2></a>
+
+     
+      <h3>Description </h3>
+        <p> {{ article['description']}}</p>
+        <img src="{{article['urlToImage']}}" width="80%" height="80%" alt="" srcset="">
+
+      {% endfor %}
+    </div>
+  </body>
+</html>

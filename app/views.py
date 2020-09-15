@@ -6,7 +6,7 @@ request = Requests()
 
 @app.route('/')
 def index():
-    topheadlines = request.get_top_headlines(sources='bbc-news')
+    topheadlines = request.get_top_headlines(sources='abc-news')
     # return topheadlines
 
     return render_template('index.html', data = topheadlines['articles'])       
@@ -22,6 +22,7 @@ def fox():
 @app.route('/abc')
 def abc():
     topheadlines = request.get_top_headlines(sources='abc-news')  
+    print(topheadlines)
     # return topheadlines
     # return topheadlines
 

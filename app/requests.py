@@ -8,7 +8,7 @@ class Requests:
 
     def get_top_headlines(self,sources=None):
         if Source is not None:
-            response = self.News.get_top_headlines(country = 'us')
+            response = self.News.get_top_headlines()
         else:
             response = self.News.get_top_headlines(sources=sources)
         articles = dict(articles = [])

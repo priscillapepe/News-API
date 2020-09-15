@@ -15,6 +15,7 @@
       <h3>Description </h3>
         <p> {{ article['description']}}</p>
         <img src="{{article['urlToImage']}}" width="80%" height="80%" alt="" srcset="">
+        <p> {{ article.source.name }} </p>
 
       {% endfor %}
     </div>

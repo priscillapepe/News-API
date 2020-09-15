@@ -8,6 +8,8 @@ class Article:
         self.title = title
         self.url = url
         self.urlToImage = urlToImage
+
+        
 class Source:
     def __init__(self,category,country,description,id,language,name,url):
         self.category =category

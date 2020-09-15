@@ -14,22 +14,24 @@
 
     <div class="container">
       <h1 style="font-family: cursive; text-decoration: underline;">News Update</h1>
+      <h2 style="font-family: fantasy; font-weight: bolder; font-size:x-large ;">Welcome to BBC News </h2>
       <div class="row">
         {% for article in data %}
         <div class="col-md-4 d-flex" style="width: 24rem;">
           <div class="card-body">
             <img class="img-fluid" width="300" src="{{article['urlToImage']}}" width="80%" height="80%" alt="" srcset="">
               <p>  {{ article.source.name}} </p>
+              <h6>{{ article['publishedAt']}}</h6>
             <a href="{{ article['url']}}" target="_blank" rel="noopener noreferrer"> 
               <h5>{{ article['title'] }}</h5>
             </a>
-              <h6>{{ article['publishedAt']}}</h6>
               <p> {{ article['description']}}</p>
           </div>
         </div>
       {% endfor %}
       </div>
     </div>
+    
 
     {% block footer %} {% include 'footer.html' %} {% endblock %}
 

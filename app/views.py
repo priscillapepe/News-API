@@ -1,12 +1,15 @@
 from app import app
 from flask import render_template
-from app.requests import Requests
+from app.requests import NewsRequests
+# from run import app
+# from app import create_app
 
-request = Requests()
+# app = create_app('development')
+request = NewsRequests()
 
 @app.route('/')
 def index():
-    topheadlines = request.get_top_headlines(sources='abc-news')
+    topheadlines = request.get_top_headlines(sources='bbc-news')
     # return topheadlines
 
     return render_template('index.html', data = topheadlines['articles'])       

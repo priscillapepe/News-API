@@ -1,22 +1,39 @@
-
-    {% extends 'bootstrap/base.html'%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  </head>
+  <body>
 
     {% block navbar %}
     {% include 'navbar.html' %}
-    {% endblock %}
-    {% block content %}
+{% endblock %}
+
     <div class="container">
-      <h1>ABC News</h1>
-
-      {% for article in data %}
-      <a href="{{ article['url']}}" target="_blank" rel="noopener noreferrer"> <h2>{{ article['title'] }}</h2></a>
-
-     
-      <h3>Description </h3>
-        <p> {{ article['description']}}</p>
-        <img src="{{article['urlToImage']}}" width="80%" height="80%" alt="" srcset="">
-        <p> {{ article.source.name }} </p>
-
+      <h1 style="font-family: cursive; text-decoration: underline;">News Update</h1>
+      <h2 style="font-family: fantasy; font-weight: bolder; font-size:x-large ;">Welcome to ABC News</h2>
+      <div class="row">
+        {% for article in data %}
+        <div class="col-md-4 d-flex" style="width: 24rem;">
+          <div class="card-body">
+            <img class="img-fluid" width="300" src="{{article['urlToImage']}}" width="80%" height="80%" alt="" srcset="">
+              <p>  {{ article.source.name}} </p>
+              <h6>{{ article['publishedAt']}}</h6>
+            <a href="{{ article['url']}}" target="_blank" rel="noopener noreferrer"> 
+              <h5>{{ article['title'] }}</h5>
+            </a>
+              <p> {{ article['description']}}</p>
+          </div>
+        </div>
       {% endfor %}
+      </div>
     </div>
-      {% endblock %}
+    
+
+    {% block footer %} {% include 'footer.html' %} {% endblock %}
+
+  </body>
+</html>
